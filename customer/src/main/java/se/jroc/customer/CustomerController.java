@@ -17,6 +17,10 @@ public class CustomerController {
     @PostMapping
     public void registerCustomer(@RequestBody CustomerRegistrationRequest customerRegistrationRequest) {
         log.info("new customer registration {}", customerRegistrationRequest);
-        customerService.registerCustomer(customerRegistrationRequest);
+        try {
+            customerService.registerCustomer(customerRegistrationRequest);
+        } catch (IllegalAccessException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
