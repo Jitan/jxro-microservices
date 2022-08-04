@@ -1,4 +1,4 @@
-package se.jroc.fraud;
+package se.jroc.clients.fraud;
 
 public record FraudCheckResponse(Boolean isFraudster) {
 }
