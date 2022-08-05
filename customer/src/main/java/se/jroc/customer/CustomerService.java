@@ -31,10 +31,11 @@ public class CustomerService {
         if (fraudCheckResponse.isFraudster()) {
             throw new IllegalAccessException("Fraudster");
         } else {
-            // todo: send notification
+            // todo: make it async, i.e add to queue
             notificationClient.sendNotification(
                     new NotificationRequest(customer.getId(), customer.getEmail(), "Welcome home"));
         }
+
 
 
     }

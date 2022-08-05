@@ -18,6 +18,7 @@ public class NotificationService {
                 .toCustomerEmail(request.toCustomerEmail())
                 .message(request.message())
                 .sentAt(LocalDateTime.now())
+                .sender("MonkeyRo")
                 .build();
         notificationRepository.saveAndFlush(notification);
     }
