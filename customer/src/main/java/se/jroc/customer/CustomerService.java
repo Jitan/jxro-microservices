@@ -35,8 +35,5 @@ public class CustomerService {
             notificationClient.sendNotification(
                     new NotificationRequest(customer.getId(), customer.getEmail(), "Welcome home"));
         }
-
-
-
     }
 }
