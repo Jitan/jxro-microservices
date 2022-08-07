@@ -2,18 +2,17 @@ package se.jroc.customer;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
+import se.jroc.amqp.RabbitMQMessageProducer;
 import se.jroc.clients.fraud.FraudClient;
 import se.jroc.clients.fraud.FraudCheckResponse;
 import se.jroc.clients.notification.NotificationClient;
 import se.jroc.clients.notification.NotificationRequest;
-
 @Service
 @AllArgsConstructor
 public class CustomerService {
     private final CustomerRepository customerRepository;
     private final FraudClient fraudClient;
-    private final NotificationClient notificationClient;
+    private final RabbitMQMessageProducer rabbitMQMessageProducer;
 
     public void registerCustomer(CustomerRegistrationRequest request) throws IllegalAccessException {
         Customer customer = Customer.builder()
@@ -30,10 +29,14 @@ public class CustomerService {
 
         if (fraudCheckResponse.isFraudster()) {
             throw new IllegalAccessException("Fraudster");
-        } else {
-            // todo: make it async, i.e add to queue
-            notificationClient.sendNotification(
-                    new NotificationRequest(customer.getId(), customer.getEmail(), "Welcome home"));
         }
+
+        NotificationRequest notificationRequest =
+                new NotificationRequest(
+                        customer.getId(),
+                        customer.getEmail(),
+                        String.format("Welcome home %s", customer.getFirstName()));
+
+        rabbitMQMessageProducer.publish(notificationRequest, "internal.exchange", "internal.notification.routing-key");
     }
 }
