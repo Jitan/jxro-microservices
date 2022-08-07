@@ -1,0 +1,7 @@
+/Users/jitan/dev/projects/learning/jxro-microservices/notification/src/main/java/se/jroc/notification/NotificationController.java
+/Users/jitan/dev/projects/learning/jxro-microservices/notification/src/main/java/se/jroc/notification/Notification.java
+/Users/jitan/dev/projects/learning/jxro-microservices/notification/src/main/java/se/jroc/notification/rabbitmq/NotificationConsumer.java
+/Users/jitan/dev/projects/learning/jxro-microservices/notification/src/main/java/se/jroc/notification/NotificationApplication.java
+/Users/jitan/dev/projects/learning/jxro-microservices/notification/src/main/java/se/jroc/notification/NotificationRepository.java
+/Users/jitan/dev/projects/learning/jxro-microservices/notification/src/main/java/se/jroc/notification/NotificationConfig.java
+/Users/jitan/dev/projects/learning/jxro-microservices/notification/src/main/java/se/jroc/notification/NotificationService.java
