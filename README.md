@@ -7,8 +7,6 @@ Course work for [Microservices and Distributed Systems @ Amigoscode.com](https:/
 - Spring Data JPA
 - Message Queue with RabbitMQ and Kafka
 - Spring Cloud (OpenFeign, Service Discovery, Distributed Tracing)
-- Configuration and Secrets management
-- Packing Jars with Jib
 - Docker
 - Kubernetes
 
