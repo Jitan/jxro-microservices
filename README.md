@@ -5,7 +5,7 @@ Course work for [Microservices and Distributed Systems @ Amigoscode.com](https:/
 - Spring Boot Microservices
 - Maven (Including Multi Module, Builds and Profiles)
 - Spring Data JPA
-- Message Queue with RabbitMQ and Kafka ()
+- Message Queue with RabbitMQ and Kafka
 - Spring Cloud (OpenFeign, Service Discovery, Distributed Tracing)
 - Configuration and Secrets management
 - Packing Jars with Jib
